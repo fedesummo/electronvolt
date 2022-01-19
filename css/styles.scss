@@ -1,0 +1,161 @@
+$nav-height: 6vh;
+
+// including Bootstrap stylesheet
+@import "bootstrap";
+
+// body background
+body {
+  @extend .bg-dark;
+}
+
+// ElectronVolt logo
+.navbar-brand {
+  font-family: "Abril Fatface", cursive;
+  color: white;
+}
+
+// sticky nav-bar
+header {
+  position: sticky;
+  top: 0;
+  nav {
+    height: $nav-height;
+  }
+}
+
+// sections container
+main,
+#nosotros,
+#contacto {
+  @extend .container, .d-flex, .flex-column, .justify-content-md-center;
+}
+
+// adjust height to a correct nav link scroll
+main {
+  min-height: calc(100vh - #{$nav-height} );
+}
+
+#nosotros, #contacto {
+  min-height: calc(100vh + #{$nav-height} );
+}
+
+// section title
+.sectionTitle {
+  @extend .container-fluid,
+    .d-flex,
+    .flex-column,
+    .align-items-center,
+    .text-light,
+    .text-center;
+  h2 {
+    @extend .h1;
+  }
+}
+
+// horizontal line
+.horizontalLine {
+  @extend .bg-dark;
+  width: 80%;
+  height: 1.5px;
+  border: 1px solid black;
+}
+
+// ---- SERVICIOS ----
+
+// container
+.serviciosContainer {
+  @extend .container-fluid,
+    .row,
+    .p-4,
+    .gap-5,
+    .d-flex,
+    .justify-content-center,
+    .align-items-center;
+}
+
+//articles
+.serviciosContainer article {
+  @extend .col-12,
+    .col-md-3,
+    .d-flex,
+    .flex-column,
+    .align-items-center,
+    .bg-light,
+    .rounded-3,
+    .py-3;
+}
+
+// side articles height
+/* .sideArticle {
+  height: fit-content;
+} */
+
+// image article container
+.serviciosArticle--imgContainer {
+  @extend .d-flex, .flex-column, .align-items-center;
+  img {
+    @extend .w-75, .p-3;
+  }
+}
+
+.serviciosArticle--txtContainer {
+  @extend .d-flex, .flex-column, .align-items-center;
+  text-align: center;
+}
+
+// ---- NOSOTROS ----
+
+#nosotros {
+  .nosotrosContainer {
+    @extend .container-fluid, .p-4, .d-flex, .justify-content-center;
+    .nosotrosContainer--responsive {
+      @extend .col-12, .col-md-6;
+      article {
+        @extend .d-flex,
+          .flex-column,
+          .align-items-center,
+          .bg-light,
+          .rounded-3,
+          .p-3,
+          .h-100;
+        .nosotrosArticle--imgContainer {
+          @extend .navbar-brand, .text-dark, .p-0, .fs-1;
+          p {
+            @extend .m-0;
+          }
+        }
+        .nosotrosArticle--txtContainer {
+          @extend .d-flex, .flex-column, .text-center;
+        }
+      }
+    }
+  }
+}
+
+// ---- CONTACTO ----
+#contacto {
+  .contactoContainer {
+    @extend .row, .p-4, .g-5;
+    .contactoContainer--socialMedia {
+      @extend .col-12, .col-md-3;
+      article {
+        @extend .d-flex,
+          .flex-column,
+          .align-items-center,
+          .bg-light,
+          .rounded-3,
+          .h-100,
+          .p-3;
+        img {
+          @extend .w-25;
+        }
+      }
+    }
+    .contactoContainer--contactForm {
+      @extend .col-12, .col-md-9;
+      article {
+        @extend .d-flex, .flex-column, .align-items-center, .bg-light, .rounded-3, .h-100, .p-3;
+      } 
+    }
+  }
+}
